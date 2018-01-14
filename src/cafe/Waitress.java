@@ -6,10 +6,10 @@ public class Waitress {
 	
 	private Menu pancakeHouseMenu;
 	private Menu cafeMenu;
-	private int dinnerItemsNumber;
+	private int cafeItemsNumber;
 	private int pancakesItemsNumber;
 	
-	public Waitress(Menu pancakeMenu, Menu cafeMenu ){
+	public Waitress(Menu pancakeMenu, Menu cafeMenu){
 		this.pancakeHouseMenu = pancakeMenu;
 		this.cafeMenu = cafeMenu;
 	}
@@ -17,15 +17,15 @@ public class Waitress {
 	public void updateKnowledge(){
 		Iterator cafe = cafeMenu.createIterator();
 		Iterator pancakes = pancakeHouseMenu.createIterator();
-		dinnerItemsNumber = setNumOfItems(cafe);
+		cafeItemsNumber = setNumOfItems(cafe);
 		pancakesItemsNumber = setNumOfItems(pancakes);
 	}
 	
-	public int getNumberOfDinnerItems(){
-		return dinnerItemsNumber;
+	public int getNumberOfCafeMenuItems(){
+		return cafeItemsNumber;
 	}
 	
-	public int getNumberOfPancakeHouseItems(){
+	public int getNumberOfPancakeMenuItems(){
 		return pancakesItemsNumber;
 	}
 	
