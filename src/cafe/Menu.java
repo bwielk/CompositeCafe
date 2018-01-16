@@ -79,4 +79,8 @@ public class Menu extends MenuComponent {
 	public int getNumberOfAllItems(){
 		return numOfAllItems;
 	}
+	
+	public int getNumberOfAllSubmenus(){
+		return numOfAllSubmenus;
+	}
 }

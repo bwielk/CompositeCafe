@@ -37,11 +37,6 @@ public class MenuTest{
 		menuDinnerDessert.add(new MenuItem("STP", "Sticky Toffee Pudding", true, 2.50));
 		menuDinnerDessert.add(new MenuItem("Rice pudding", "Rice pudding with wild berries", true, 1.50));
 		menuDinnerDessert.add(new MenuItem("Rice pudding Deluxe", "Rice pudding with wild berries and ice cream", true, 2.50));
-		//mainMenu.add(menuBreakfast);
-		//menuLunch.add(menuLunchCoffee);
-		//mainMenu.add(menuLunch);
-		//menuDinner.add(menuDinnerDessert);
-		//mainMenu.add(menuDinner);
 	}
 	
 	@Test
@@ -70,5 +65,19 @@ public class MenuTest{
 		menuLunch.setNumbersOfItemsAndSubmenus();
 		assertEquals(1, menuLunch.getNumberOfSubmenus());
 		assertEquals(4, menuLunch.getNumberOfItems());
+	}
+	
+	@Test
+	public void submenusAreDetectedInMainMenuWithAllItemsInIt(){
+		mainMenu.add(menuBreakfast);
+		menuLunch.add(menuLunchCoffee);
+		mainMenu.add(menuLunch);
+		menuDinner.add(menuDinnerDessert);
+		mainMenu.add(menuDinner);
+		mainMenu.setNumbersOfItemsAndSubmenus();
+		assertEquals(3, mainMenu.getNumberOfSubmenus());
+		assertEquals(0, mainMenu.getNumberOfItems());
+		assertEquals(15, mainMenu.getNumberOfAllItems());
+		assertEquals(5, mainMenu.getNumberOfAllSubmenus());
 	}
 }

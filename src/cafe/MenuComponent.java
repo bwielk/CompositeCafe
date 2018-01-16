@@ -5,6 +5,7 @@ public abstract class MenuComponent {
 	protected int numOfSubmenus = 0;
 	protected int numOfItems = 0;
 	protected int numOfAllItems = 0;
+	protected int numOfAllSubmenus = 0;
 	
 	public void add(MenuComponent menuComponent){
 		throw new UnsupportedOperationException();
@@ -47,6 +48,10 @@ public abstract class MenuComponent {
 	}
 
 	public int getNumberOfAllItems() {
+		throw new UnsupportedOperationException();
+	}
+
+	public int getNumberOfAllSubmenus() {
 		throw new UnsupportedOperationException();
 	}
 
