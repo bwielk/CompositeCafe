@@ -36,17 +36,28 @@ public class Menu extends MenuComponent {
 	}
 	
 	public void setNumbersOfItemsAndSubmenus(){
+		int items = 0;
+		int menus = 0;
+		int allItems = 0;
 		Iterator iterator = menuComponents.iterator();
 		while(iterator.hasNext()){
 			MenuComponent comp = (MenuComponent) iterator.next();
 			if(comp.getClass() == MenuItem.class){
-				numOfItems += 1;
-				numOfAllItems += 1;
+				items += 1;
+				if(items != numOfItems && items > numOfItems){
+					numOfItems = items;
+				}
 			}else if(comp.getClass() == Menu.class){
-				numOfSubmenus += 1;
+				menus += 1;
+				if(menus != numOfSubmenus && menus > numOfSubmenus){
+					numOfSubmenus = menus;
+				}
 				for(int i = 0; i < getItems().size(); i++){
 					if(getItems().get(i).getClass() == MenuItem.class){
-						numOfAllItems += 1;
+						allItems += 1;
+						if(allItems + items != numOfAllItems){
+							numOfAllItems = allItems + items;
+						}
 					}
 				}
 			}

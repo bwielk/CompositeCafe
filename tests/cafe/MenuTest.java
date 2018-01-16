@@ -45,11 +45,30 @@ public class MenuTest{
 	}
 	
 	@Test
-	public void submenusAreDetected(){
+	public void submenusAreDetectedInDinnerMenu(){
 		menuDinner.add(menuDinnerDessert);
 		menuDinner.setNumbersOfItemsAndSubmenus();
 		assertEquals(1, menuDinner.getNumberOfSubmenus());
 		assertEquals(3, menuDinner.getNumberOfItems());
 		assertEquals(6, menuDinner.getNumberOfAllItems());
+	}
+	
+	@Test
+	public void submenusAreDetectedInBreakfastMenu(){
+		menuBreakfast.setNumbersOfItemsAndSubmenus();
+		assertEquals(0, menuBreakfast.getNumberOfSubmenus());
+		assertEquals(3, menuBreakfast.getNumberOfItems());
+	}
+	
+	@Test
+	public void submenusAreDetectedInLunchMenu(){
+		menuLunch.add(menuLunchCoffee);
+		menuLunch.setNumbersOfItemsAndSubmenus();
+		assertEquals(1, menuLunch.getNumberOfSubmenus());
+		assertEquals(3, menuLunch.getNumberOfItems());
+		menuLunch.add(new MenuItem ("xxx", "xxx", false, 0.45));
+		menuLunch.setNumbersOfItemsAndSubmenus();
+		assertEquals(1, menuLunch.getNumberOfSubmenus());
+		assertEquals(4, menuLunch.getNumberOfItems());
 	}
 }

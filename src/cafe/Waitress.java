@@ -13,7 +13,6 @@ public class Waitress {
 	}
 	
 	public void updateKnowledge(){
-		allMenus.setNumbersOfItemsAndSubmenus();
 		numOfItems = allMenus.getNumberOfItems();
 		numOfSubmenus = allMenus.getNumberOfSubmenus();
 	}
