@@ -5,11 +5,12 @@ import java.util.Iterator;
 
 public class Menu extends MenuComponent {
 	
-	protected ArrayList menuComponents = new ArrayList();
-	protected static String name;
-	protected static String description;
+	private ArrayList<MenuComponent> menuComponents;
+	private String name;
+	private String description;
 	
 	public Menu(String name, String description){
+		this.menuComponents = new ArrayList<MenuComponent>();
 		this.name = name;
 		this.description = description;
 	}
@@ -40,10 +41,20 @@ public class Menu extends MenuComponent {
 			MenuComponent comp = (MenuComponent) iterator.next();
 			if(comp.getClass() == MenuItem.class){
 				numOfItems += 1;
+				numOfAllItems += 1;
 			}else if(comp.getClass() == Menu.class){
 				numOfSubmenus += 1;
+				for(int i = 0; i < getItems().size(); i++){
+					if(getItems().get(i).getClass() == MenuItem.class){
+						numOfAllItems += 1;
+					}
+				}
 			}
 		}
+	}
+	
+	private ArrayList getItems(){
+		return this.menuComponents;
 	}
 
 	public int getNumberOfItems(){
@@ -52,5 +63,9 @@ public class Menu extends MenuComponent {
 	
 	public int getNumberOfSubmenus(){
 		return numOfSubmenus;
+	}
+	
+	public int getNumberOfAllItems(){
+		return numOfAllItems;
 	}
 }

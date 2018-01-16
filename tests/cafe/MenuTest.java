@@ -16,12 +16,12 @@ public class MenuTest{
 	
 	@Before
 	public void before(){
-		MenuComponent mainMenu = new Menu("EatHouse menu", "A selection of delicious dishes");
-		MenuComponent menuBreakfast = new Menu("Breakfast menu", "A selection of breakie choices");
-		MenuComponent menuLunch = new Menu("Lunch menu", "A selection of lunches");
-		MenuComponent menuDinner = new Menu("Dinner menu", "A selection of dinner choices");
-		MenuComponent menuDinnerDessert = new Menu("Dinner dessert menu", "Dessert after dinner");
-		MenuComponent menuLunchCoffee = new Menu("Coffee menu", "Drink");
+		mainMenu = new Menu("EatHouse menu", "A selection of delicious dishes");
+		menuBreakfast = new Menu("Breakfast menu", "A selection of breakie choices");
+		menuLunch = new Menu("Lunch menu", "A selection of lunches");
+		menuDinner = new Menu("Dinner menu", "A selection of dinner choices");
+		menuDinnerDessert = new Menu("Dinner dessert menu", "Dessert after dinner");
+		menuLunchCoffee = new Menu("Coffee menu", "Drink");
 		menuLunch.add(new MenuItem("Cheese cake", "Austrian style cheese cake", true, 1.50));
 		menuLunch.add(new MenuItem("Carrot cake", "British style carrot cake", true, 2.00));
 		menuLunch.add(new MenuItem("Ham sandwich", "Honey roasted ham sandwich", false, 1.50));
@@ -47,7 +47,9 @@ public class MenuTest{
 	@Test
 	public void submenusAreDetected(){
 		menuDinner.add(menuDinnerDessert);
+		menuDinner.setNumbersOfItemsAndSubmenus();
 		assertEquals(1, menuDinner.getNumberOfSubmenus());
+		assertEquals(3, menuDinner.getNumberOfItems());
+		assertEquals(6, menuDinner.getNumberOfAllItems());
 	}
-
 }
