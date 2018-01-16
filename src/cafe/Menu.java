@@ -14,7 +14,7 @@ public class Menu extends MenuComponent {
 		this.description = description;
 	}
 	
-	public void addItem(MenuComponent menuComponent){
+	public void add(MenuComponent menuComponent){
 		menuComponents.add(menuComponent);
 	}
 	
@@ -45,7 +45,7 @@ public class Menu extends MenuComponent {
 			}
 		}
 	}
-	
+
 	public int getNumberOfItems(){
 		return numOfItems;
 	}
