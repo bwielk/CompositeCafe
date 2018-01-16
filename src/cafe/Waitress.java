@@ -4,37 +4,25 @@ import java.util.Iterator;
 
 public class Waitress {
 	
-	private Menu pancakeHouseMenu;
-	private Menu cafeMenu;
-	private int cafeItemsNumber;
-	private int pancakesItemsNumber;
+	private MenuComponent allMenus;
+	private int numOfItems = 0;
+	private int numOfSubmenus = 0;
 	
-	public Waitress(Menu pancakeMenu, Menu cafeMenu){
-		this.pancakeHouseMenu = pancakeMenu;
-		this.cafeMenu = cafeMenu;
+	public Waitress(MenuComponent allMenus){
+		this.allMenus = allMenus;
 	}
 	
 	public void updateKnowledge(){
-		Iterator cafe = cafeMenu.createIterator();
-		Iterator pancakes = pancakeHouseMenu.createIterator();
-		cafeItemsNumber = setNumOfItems(cafe);
-		pancakesItemsNumber = setNumOfItems(pancakes);
+		allMenus.setNumbersOfItemsAndSubmenus();
+		numOfItems = allMenus.getNumberOfItems();
+		numOfSubmenus = allMenus.getNumberOfSubmenus();
 	}
 	
-	public int getNumberOfCafeMenuItems(){
-		return cafeItemsNumber;
+	public int getNumberOfItems(){
+		return numOfItems;
 	}
 	
-	public int getNumberOfPancakeMenuItems(){
-		return pancakesItemsNumber;
-	}
-	
-	private int setNumOfItems(Iterator iterator){
-		int result = 0;
-		while(iterator.hasNext()){
-			iterator.next();
-			result += 1;
-		}
-		return result;
+	public int getNumberOfSubmenus(){
+		return numOfSubmenus;
 	}
 }

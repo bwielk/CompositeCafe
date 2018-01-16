@@ -21,8 +21,8 @@ public class WaitressTest {
 	@Test
 	public void waitressKnowsHowManyItemsAreInBothMenus() {
 		waitress.updateKnowledge();
-		assertEquals(3, waitress.getNumberOfPancakeMenuItems());
-		assertEquals(3, waitress.getNumberOfCafeMenuItems());
+		assertEquals(3, waitress.getNumberOfItems());
+		assertEquals(3, waitress.getNumberOfSubmenus());
 	}
 	
 	@Test

@@ -2,6 +2,9 @@ package cafe;
 
 public abstract class MenuComponent {
 	
+	protected int numOfSubmenus = 0;
+	protected int numOfItems = 0;
+	
 	public void add(MenuComponent menuComponent){
 		throw new UnsupportedOperationException();
 	}
@@ -29,4 +32,17 @@ public abstract class MenuComponent {
 	public double getPrice(){
 		throw new UnsupportedOperationException();
 	}
+	
+	public void setNumbersOfItemsAndSubmenus(){
+		throw new UnsupportedOperationException();
+	}
+	
+	public int getNumberOfItems(){
+		throw new UnsupportedOperationException();
+	}
+	
+	public int getNumberOfSubmenus(){
+		throw new UnsupportedOperationException();
+	}
+
 }
