@@ -1,5 +1,8 @@
 package cafe;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public abstract class MenuComponent {
 	
 	protected int numOfSubmenus = 0;
@@ -54,5 +57,8 @@ public abstract class MenuComponent {
 	public int getNumberOfAllSubmenus() {
 		throw new UnsupportedOperationException();
 	}
-
+	
+	public Iterator createIterator(){
+		throw new UnsupportedOperationException();
+	}
 }

@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 public class Menu extends MenuComponent {
 	
+	private Iterator iterator;
 	private ArrayList<MenuComponent> menuComponents;
 	private String name;
 	private String description;
@@ -39,21 +40,24 @@ public class Menu extends MenuComponent {
 		int items = 0;
 		int menus = 0;
 		int allItems = 0;
+		int allSubmenus = 0;
 		Iterator iterator = menuComponents.iterator();
 		while(iterator.hasNext()){
 			MenuComponent comp = (MenuComponent) iterator.next();
+			
 			if(comp.getClass() == MenuItem.class){
 				items += 1;
 				if(items != numOfItems && items > numOfItems){
 					numOfItems = items;
 				}
+			
 			}else if(comp.getClass() == Menu.class){
 				menus += 1;
 				if(menus != numOfSubmenus && menus > numOfSubmenus){
 					numOfSubmenus = menus;
 				}
-				for(int i = 0; i < getItems().size(); i++){
-					if(getItems().get(i).getClass() == MenuItem.class){
+				for(int i = 0; i < menuComponents.size(); i++){
+					if( menuComponents.get(i).getClass() == MenuItem.class){
 						allItems += 1;
 						if(allItems + items != numOfAllItems){
 							numOfAllItems = allItems + items;
@@ -63,11 +67,6 @@ public class Menu extends MenuComponent {
 			}
 		}
 	}
-	
-	private ArrayList getItems(){
-		return this.menuComponents;
-	}
-
 	public int getNumberOfItems(){
 		return numOfItems;
 	}
@@ -82,5 +81,12 @@ public class Menu extends MenuComponent {
 	
 	public int getNumberOfAllSubmenus(){
 		return numOfAllSubmenus;
+	}
+	
+	public Iterator createIterator(){
+		if(iterator == null){
+			iterator = new CompositeIterator(menuComponents.iterator());
+		}
+		return iterator;
 	}
 }

@@ -66,7 +66,7 @@ public class MenuTest{
 		assertEquals(1, menuLunch.getNumberOfSubmenus());
 		assertEquals(4, menuLunch.getNumberOfItems());
 	}
-	
+	/*
 	@Test
 	public void submenusAreDetectedInMainMenuWithAllItemsInIt(){
 		mainMenu.add(menuBreakfast);
@@ -77,7 +77,8 @@ public class MenuTest{
 		mainMenu.setNumbersOfItemsAndSubmenus();
 		assertEquals(3, mainMenu.getNumberOfSubmenus());
 		assertEquals(0, mainMenu.getNumberOfItems());
-		assertEquals(15, mainMenu.getNumberOfAllItems());
 		assertEquals(5, mainMenu.getNumberOfAllSubmenus());
+		assertEquals(15, mainMenu.getNumberOfAllItems());
 	}
+	*/
 }

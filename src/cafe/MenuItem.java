@@ -1,5 +1,7 @@
 package cafe;
 
+import java.util.Iterator;
+
 public class MenuItem extends MenuComponent{
 	
 	private String name;
@@ -28,5 +30,9 @@ public class MenuItem extends MenuComponent{
 	
 	public double getPrice(){
 		return price;
+	}
+	
+	public Iterator createIterator(){
+		return new NullIterator();
 	}
 }
