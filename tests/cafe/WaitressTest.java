@@ -38,12 +38,19 @@ public class WaitressTest {
 		menuDinnerDessert.add(new MenuItem("STP", "Sticky Toffee Pudding", true, 2.50));
 		menuDinnerDessert.add(new MenuItem("Rice pudding", "Rice pudding with wild berries", true, 1.50));
 		menuDinnerDessert.add(new MenuItem("Rice pudding Deluxe", "Rice pudding with wild berries and ice cream", true, 2.50));
-		mainMenu.add(menuBreakfast);
+		/*mainMenu.add(menuBreakfast);
 		menuLunch.add(menuLunchCoffee);
 		mainMenu.add(menuLunch);
 		menuDinner.add(menuDinnerDessert);
+		mainMenu.add(menuDinner);*/
+	}
+	
+	@Test
+	public void canFindVegetarianItemsInDinnerMenu(){
+		menuDinner.add(menuDinnerDessert);
 		mainMenu.add(menuDinner);
-		waitress = new Waitress(mainMenu);
+		Waitress waitress1 = new Waitress(mainMenu);
+		assertEquals(5, waitress1.getVegetarianItems());
 	}
 	
 	/*@Test
